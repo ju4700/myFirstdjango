@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+{% block title %}Payment Confirmation{% endblock title %}
+{% block main-content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h3 class="text-dark">Payment Confirmation</h3>
+        <p>Your payment details are as follows</p>
+    </div>
+    <form action="{% url 'payment_done' %}" method="GET" class="mt-4">
+        {% csrf_token %}
+        <input type="hidden" name="store_id" value="aamarpay">
+        <input type="hidden" name="signature_key" value="28c78bb1f45112f5d40b956fe104645a">
+        <input type="hidden" name="currency" value="BDT">
+        <div class="form-section active" id="step-1">
+            <h4 class="text-secondary mb-3">Customer Information</h4>
+            <div class="card p-4 mb-4 shadow-sm">
+                <div class="mb-3">
+                    <label for="tran_id" class="form-label">Merchant Transaction ID</label>
+                    <input type="text" id="tran_id" name="tran_id" class="form-control" value="{{ transaction_id }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="cus_name" class="form-label">Customer Name</label>
+                    <input type="text" id="cus_name" name="cus_name" class="form-control" value="{{ customer_name }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="cus_phone" class="form-label">Mobile</label>
+                    <input type="text" id="cus_phone" name="cus_phone" class="form-control" value="{{ customer_phone }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="cus_add1" class="form-label">Address</label>
+                    <textarea id="cus_add1" name="cus_add1" class="form-control" rows="2" readonly>{{ customer_address }}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-section" id="step-3">
+            <h4 class="text-secondary mb-3">Payment Amount</h4>
+            <div class="card p-4 mb-4 shadow-sm">
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" id="amount" name="amount" class="form-control" value="{{ total_amount }}" readonly>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="submit" class="btn btn-dark px-4 py-2">Pay Now</button>
+                    <span class="text-muted">Total Amount: BDT {{ total_amount }}</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="text-center mt-4">
+        <a href="{% url 'index' %}" class="btn btn-outline-dark">Back to Home</a>
+    </div>
+</div>
+    <br>
+    <br>
+    <br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const steps = document.querySelectorAll('.stepwizard-step button');
+        const sections = document.querySelectorAll('.form-section');
+        const nextButtons = document.querySelectorAll('.next-step');
+        const prevButtons = document.querySelectorAll('.prev-step');
+
+        nextButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const currentStep = document.querySelector('.form-section.active');
+                const currentIndex = [...sections].indexOf(currentStep);
+                if (currentIndex < sections.length - 1) {
+                    sections[currentIndex].classList.remove('active');
+                    sections[currentIndex + 1].classList.add('active');
+                    steps[currentIndex].classList.replace('btn-primary', 'btn-secondary');
+                    steps[currentIndex + 1].classList.replace('btn-secondary', 'btn-primary');
+                }
+            });
+        });
+        prevButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const currentStep = document.querySelector('.form-section.active');
+                const currentIndex = [...sections].indexOf(currentStep);
+                if (currentIndex > 0) {
+                    sections[currentIndex].classList.remove('active');
+                    sections[currentIndex - 1].classList.add('active');
+                    steps[currentIndex].classList.replace('btn-primary', 'btn-secondary');
+                    steps[currentIndex - 1].classList.replace('btn-secondary', 'btn-primary');
+                }
+            });
+        });
+    });
+</script>
+{% endblock main-content %}

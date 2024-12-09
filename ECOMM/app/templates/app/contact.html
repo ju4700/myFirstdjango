@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contact - Laptop Baaar{% endblock title %}
+
+{% block main-content %}
+<div class="contact-page text-center">
+    <div class="container mt-5">
+        <h1>Contact Us</h1>
+        <p class="lead">
+            Have a question or need assistance? Reach out to us using the form below or via our contact details.
+        </p>
+        <hr class="my-4">
+
+        <div class="d-flex flex-column align-items-center">
+            <h3>Get in Touch</h3>
+            <form action="{% url 'contact' %}" method="post" class="w-50">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="message">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Type your message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+
+        <div class="mt-5">
+            <h3>Contact Details</h3>
+            <p><strong>Email:</strong> support@laptopbaaar.com</p>
+            <p><strong>Phone:</strong> +1-800-123-4567</p>
+            <p><strong>Address:</strong> 123 Tech Street, Laptop City, Techland 56789</p>
+            <h4>Follow Us</h4>
+            <p>
+                <strong>Facebook:</strong> facebook.com/laptopbaaar<br>
+                <strong>Twitter:</strong> twitter.com/laptopbaaar<br>
+                <strong>Instagram:</strong> instagram.com/laptopbaaar
+            </p>
+        </div>
+    </div>
+</div>
+    <br>
+{% endblock main-content %}

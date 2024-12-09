@@ -1,0 +1,153 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'app/images/l2.jpg' %}" class="d-block w-100" alt="banner image">
+        </div>
+        <div class="carousel-item active">
+          <img src="{% static 'app/images/l3.jpg' %}" class="d-block w-100" alt="banner image">
+        </div>
+        <div class="carousel-item active">
+          <img src="{% static 'app/images/l4.jpg' %}" class="d-block w-100" alt="banner image">
+        </div>
+      </div>
+    </div>
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+    <div class="row bg-dark text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small> Welcome to Laptop Bazaar, your ultimate destination for top-notch laptops and accessories. From high-performance gaming machines and sleek ultrabooks to versatile 2-in-1 devices and budget-friendly options, we offer a wide range of laptops tailored to meet every need. At Laptop Bazaar, we are committed to delivering quality, innovation, and value, ensuring you get the perfect device for work, study, or play. With trusted brands, the latest technology, and competitive prices, Laptop Bazaar is where performance meets affordability. Discover your ideal laptop today and elevate your computing experience with Laptop Bazaar!</small>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+    <div class="container">
+        <br><br>
+        <h2 class="text-center">Top Products</h2>
+        <br>
+        <div class="row container">
+            <!-- First Row of Products -->
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'D' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/dell-1.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">Dell G16 Core i9 13th Gen RTX 4060 16GB RAM 1TB SSD 16" Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'D' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/dell-2.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">Dell Alienware M16 R2 Core Ultra 7 RTX 4070 16GB RAM 1TB SSD 16" Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'D' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/dell-3.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">Dell Alienware X16 R2 Core Ultra 9 RTX 4070 32GB RAM 1TB SSD 16" Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row container">
+            <!-- Second Row of Products -->
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'H' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/hp-1.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">HP Victus 15 Core i5 13th Gen RTX 2050 15.6" 144Hz Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'Ac' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/acer-1.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">Acer Aspire 5 Core i5 13th Gen 16GB RAM 512GB SSD RTX 2050 15.6" Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'D' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/dell-4.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">Dell Alienware M16 Ryzen 9 RTX 4080 32GB RAM 1TB SSD 16" Gaming Laptop</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- Big Banner -->
+        <div class="container my-4">
+            <div class="row">
+                <div class="col">
+                    <div class="banner">
+                        <img src="{% static 'app/images/l1.jpg' %}" class="img-fluid rounded shadow" alt="Big Banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- iPhones Section -->
+        <br>
+        <h2 class="text-center">Latest iPhones</h2>
+        <div class="row container">
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'I' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/iphone-1.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">iPhone 15 Pro Max 256GB</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'I' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/iphone-2.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">iPhone 15 128GB Starlight</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+                <div class="goodnesssec buttermilk smbg">
+                    <a href="{% url 'category' 'I' %}">
+                        <div class="goodnessseccont text-center">
+                            <img src="{% static 'app/images/product/iphone-3.jpg' %}" class="img-responsive center-block" alt="">
+                            <small class="mlkpro">iPhone 14 Plus 512GB Midnight</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+{% endblock main-content %}
